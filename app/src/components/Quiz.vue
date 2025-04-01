@@ -1,5 +1,5 @@
 <template>
-  <v-container class="fill-height d-flex align-center justify-center">
+  <v-container class="fill-height d-flex align-center justify-center full-page">
     <v-card class="quiz-card" elevation="10">
       <v-card-title class="text-center text-h4 font-weight-bold">
         Quiz para escolher seu Orientador
@@ -10,18 +10,19 @@
           <div v-for="(question, index) in questions" :key="index" class="question-container">
             <h2 class="question-text">{{ question.text }}</h2>
             
-            <v-radio-group v-model="answers[index]" class="options-group" column>
+            <v-radio-group v-model="answers[index]" class="options-group">
               <v-radio
                 v-for="(option, i) in question.options"
                 :key="i"
                 :label="option.text"
                 :value="option.value"
                 class="option-item"
+                color="primary"
               ></v-radio>
             </v-radio-group>
           </div>
           
-          <v-btn color="primary" block type="submit">Enviar</v-btn>
+          <v-btn color="purple" block type="submit">Enviar</v-btn>
         </v-form>
       </v-card-text>
     </v-card>
@@ -53,7 +54,6 @@ export default {
       }
     ]);
 
-    // Adicione esta linha para declarar a variável answers
     const answers = ref([]);
 
     const submitQuiz = () => {
@@ -70,15 +70,36 @@ export default {
 </script>
 
 <style scoped>
-.v-container {
-  background-color: #f5f5f5;
+.full-page {
   min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v-container {
+  min-height: 100vh !important;
+  min-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .quiz-card {
   width: 600px;
   padding: 20px;
   border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8); /* Reduzindo opacidade para melhor integração */
+  backdrop-filter: blur(10px);
 }
 
 .question-container {
