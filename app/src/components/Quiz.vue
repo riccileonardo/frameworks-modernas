@@ -22,7 +22,7 @@
             </v-radio-group>
           </div>
           
-          <v-btn color="purple" block type="submit">Enviar</v-btn>
+          <v-btn color="purple" block type="">Proxima Pergunta</v-btn>
         </v-form>
       </v-card-text>
     </v-card>
