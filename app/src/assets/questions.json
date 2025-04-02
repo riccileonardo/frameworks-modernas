@@ -1,0 +1,84 @@
+[
+  {
+    "text": "Qual é a sua área de interesse principal?",
+    "options": [
+      { "text": "Desenvolvimento Web", "value": "web" },
+      { "text": "Inteligência Artificial", "value": "ai" },
+      { "text": "Ciência de Dados", "value": "data_science" },
+      { "text": "Segurança da Informação", "value": "security" }
+    ]
+  },
+  {
+    "text": "Qual é o seu nível de experiência?",
+    "options": [
+      { "text": "Iniciante", "value": "beginner" },
+      { "text": "Intermediário", "value": "intermediate" },
+      { "text": "Avançado", "value": "advanced" }
+    ]
+  },
+  {
+    "text": "Como você prefere trabalhar?",
+    "options": [
+      { "text": "Individualmente", "value": "individual" },
+      { "text": "Em equipe", "value": "team" },
+      { "text": "Misto (às vezes sozinho, às vezes em grupo)", "value": "mixed" }
+    ]
+  },
+  {
+    "text": "Qual destes temas mais te interessa?",
+    "options": [
+      { "text": "Aplicações práticas", "value": "practical" },
+      { "text": "Pesquisa teórica", "value": "theoretical" },
+      { "text": "Inovação tecnológica", "value": "innovation" }
+    ]
+  },
+  {
+    "text": "Qual é sua disponibilidade para orientações?",
+    "options": [
+      { "text": "Tempo integral", "value": "full_time" },
+      { "text": "Meio período", "value": "part_time" },
+      { "text": "Horários flexíveis", "value": "flexible" }
+    ]
+  },
+  {
+    "text": "Como você aprende melhor?",
+    "options": [
+      { "text": "Com exemplos práticos", "value": "practical_examples" },
+      { "text": "Com material teórico", "value": "theoretical_material" },
+      { "text": "Mistura de teoria e prática", "value": "mixed_approach" }
+    ]
+  },
+  {
+    "text": "Qual destes aspectos é mais importante para você?",
+    "options": [
+      { "text": "Publicação de artigos", "value": "papers" },
+      { "text": "Desenvolvimento de produtos", "value": "products" },
+      { "text": "Aquisição de conhecimento", "value": "knowledge" }
+    ]
+  },
+  {
+    "text": "Qual linguagem de programação você prefere?",
+    "options": [
+      { "text": "Python", "value": "python" },
+      { "text": "JavaScript", "value": "javascript" },
+      { "text": "Java/C#", "value": "java_csharp" },
+      { "text": "Outras", "value": "others" }
+    ]
+  },
+  {
+    "text": "Como você lida com prazos?",
+    "options": [
+      { "text": "Prefiro prazos curtos e intensos", "value": "short" },
+      { "text": "Prefiro prazos longos e planejados", "value": "long" },
+      { "text": "Me adapto a qualquer tipo de prazo", "value": "flexible" }
+    ]
+  },
+  {
+    "text": "Qual é seu objetivo principal?",
+    "options": [
+      { "text": "Entrar no mercado de trabalho", "value": "job" },
+      { "text": "Continuar na academia", "value": "academy" },
+      { "text": "Empreender", "value": "entrepreneur" }
+    ]
+  }
+]
