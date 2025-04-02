@@ -1,7 +1,6 @@
 <template>
   <v-container class="fill-height quiz-layout" fluid>
     <div class="quiz-container">
-      <!-- LADO ESQUERDO: QUIZ -->
       <div class="quiz-left">
         <v-card class="quiz-card" elevation="2">
           <v-card-title class="text-center text-h4 font-weight-bold">
