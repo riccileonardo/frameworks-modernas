@@ -1,17 +1,20 @@
 <template>
-    <div id="app">
-        <Quiz />
-    </div>
+  <v-app>
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
-<script>
-import Quiz from './components/Quiz.vue';
 
+<script>
 export default {
-  components: {
-    Quiz
-  }
+  name: 'App',
 };
 </script>
 
 <style>
+.v-application {
+  background-color: #6a1b9a !important;
+  color: #ffffff !important;
+}
 </style>
