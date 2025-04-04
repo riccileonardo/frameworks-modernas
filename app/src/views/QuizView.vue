@@ -1,5 +1,5 @@
 <template>
-  <v-container class="fill-height quiz-layout" fluid>
+  <v-container class="fill-height quiz-layout mt-10" fluid>
     <div class="quiz-container">
       <div class="quiz-left">
         <v-card class="quiz-card" elevation="2">
@@ -16,16 +16,16 @@
           <v-card-text>
             <v-form @submit.prevent="nextQuestion">
               <div class="question-container">
-                <h2 class="question-text">{{ currentQuestion.text }}</h2>
+                <h2 class="question-text">{{ currentQuestion.question }}</h2>
 
-                <v-radio-group 
-                  v-model="answers[currentIndex]" 
+                <v-radio-group
+                  v-model="answers[currentIndex]"
                   class="options-group"
                   :rules="[v => !!v || 'Por favor, selecione uma opção']"
                   required
                 >
                   <v-radio
-                    v-for="(option, i) in currentQuestion.options"
+                    v-for="(option, i) in currentQuestion.answers"
                     :key="i"
                     :label="option.text"
                     :value="option.value"
@@ -36,7 +36,7 @@
               </div>
 
               <div class="d-flex justify-space-between mt-6">
-                <v-btn 
+                <v-btn
                   color="deep-purple darken-2"
                   dark
                   @click="prevQuestion"
@@ -45,8 +45,8 @@
                   Voltar
                 </v-btn>
 
-                <v-btn 
-                  color="indigo darken-2"
+                <v-btn
+                  color="deep-purple darken-2"
                   dark
                   type="submit"
                   v-if="currentIndex < questions.length - 1"
@@ -54,7 +54,7 @@
                   Próxima Pergunta
                 </v-btn>
 
-                <v-btn 
+                <v-btn
                   color="green darken-2"
                   dark
                   @click="submitQuiz"
@@ -68,9 +68,8 @@
         </v-card>
       </div>
 
-      <!-- LADO DIREITO: IMAGEM -->
       <div class="quiz-right">
-        <img src="/src/assets/Ivan.png" alt="Imagem do Quiz" class="quiz-image" />
+        <img src="/src/assets/pictures/Ivan.png" alt="Imagem do Quiz" class="quiz-image" />
       </div>
     </div>
   </v-container>
@@ -78,11 +77,14 @@
 
 <script>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import questionsData from '@/assets/questions.json'
 
 export default {
   name: 'Quiz',
   setup() {
+    const router = useRouter()
+
     const questions = ref(questionsData)
     const currentIndex = ref(0)
     const answers = ref(Array(questionsData.length).fill(null))
@@ -105,8 +107,29 @@ export default {
     }
 
     const submitQuiz = () => {
-      console.log('Respostas completas:', answers.value)
-      alert('Quiz completo! Respostas: ' + JSON.stringify(answers.value))
+      if (answers.value.includes(null)) return
+
+      const counts = {}
+      answers.value.forEach(house => {
+        if (!counts[house]) counts[house] = 0
+        counts[house]++
+      })
+
+      const total = answers.value.length
+      const percentages = Object.keys(counts).map(house => ({
+        house,
+        percent: Math.round((counts[house] / total) * 100)
+      })).sort((a, b) => b.percent - a.percent)
+
+      const mainHouse = percentages[0].house
+
+      const resultPayload = {
+        percentages,
+        mainHouse
+      }
+
+      localStorage.setItem('quiz-result', JSON.stringify(resultPayload))
+      router.push('/results')
     }
 
     return {
@@ -190,22 +213,21 @@ export default {
   color: #eee !important;
 }
 
-/* Responsividade */
 @media (max-width: 960px) {
   .quiz-container {
     flex-direction: column;
     gap: 20px;
   }
-  
+
   .quiz-right {
     order: -1;
   }
-  
+
   .quiz-image {
     max-height: 300px;
     width: 100%;
   }
-  
+
   .quiz-card {
     max-width: 100%;
   }

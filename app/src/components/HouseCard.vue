@@ -5,7 +5,7 @@
     color="purple-lighten-4"
     style="border: 2px solid #6a1b9a; border-radius: 10px;"
   >
-    <v-img :src="house.image" height="300px" cover></v-img>
+    <v-img :src="house.image" height="410px" cover></v-img>
     <v-card-title>{{ house.name }}</v-card-title>
     <v-card-text>
       <p>{{ house.description }}</p>

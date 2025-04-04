@@ -1,84 +1,102 @@
 [
   {
-    "text": "Qual é a sua área de interesse principal?",
-    "options": [
-      { "text": "Desenvolvimento Web", "value": "web" },
-      { "text": "Inteligência Artificial", "value": "ai" },
-      { "text": "Ciência de Dados", "value": "data_science" },
-      { "text": "Segurança da Informação", "value": "security" }
+    "question": "O que mais te motiva em um projeto de tecnologia?",
+    "answers": [
+      { "text": "Construir algo útil enquanto o café ainda tá quente", "value": "Casa dos Devs" },
+      { "text": "Enfrentar bugs como se fossem dragões", "value": "Casa dos Algoritmos" },
+      { "text": "Ver a IA aprendendo e pensar: 'Criei um monstro'", "value": "Casa das IA's" },
+      { "text": "Criar algo que faz as pessoas dizerem WOW", "value": "Casa da Inovação" },
+      { "text": "Transformar diversão em tecnologia nível chefão", "value": "Casa dos Jogadores" }
     ]
   },
   {
-    "text": "Qual é o seu nível de experiência?",
-    "options": [
-      { "text": "Iniciante", "value": "beginner" },
-      { "text": "Intermediário", "value": "intermediate" },
-      { "text": "Avançado", "value": "advanced" }
+    "question": "Qual dessas áreas você mais gostaria de dominar?",
+    "answers": [
+      { "text": "Programar um site lindo e funcional em tempo recorde", "value": "Casa dos Devs" },
+      { "text": "Dominar a arte da criatividade + tecnologia", "value": "Casa da Inovação" },
+      { "text": "Quebrar cabeças com algoritmos só por diversão", "value": "Casa dos Algoritmos" },
+      { "text": "Criar IAs que quase adivinham o que você quer", "value": "Casa das IA's" },
+      { "text": "Fazer um jogo tão bom que até seu avô vicia", "value": "Casa dos Jogadores" }
     ]
   },
   {
-    "text": "Como você prefere trabalhar?",
-    "options": [
-      { "text": "Individualmente", "value": "individual" },
-      { "text": "Em equipe", "value": "team" },
-      { "text": "Misto (às vezes sozinho, às vezes em grupo)", "value": "mixed" }
+    "question": "Qual dessas qualidades você mais se identifica?",
+    "answers": [
+      { "text": "Tenho uma criatividade que dá nó até em IA", "value": "Casa da Inovação" },
+      { "text": "Minha mente é um labirinto lógico", "value": "Casa dos Algoritmos" },
+      { "text": "Se tem código e bug, eu tô dentro", "value": "Casa dos Devs" },
+      { "text": "Vejo o futuro e ele tem chips inteligentes", "value": "Casa das IA's" },
+      { "text": "Meu lema: vida real é legal, mas o jogo é melhor", "value": "Casa dos Jogadores" }
     ]
   },
   {
-    "text": "Qual destes temas mais te interessa?",
-    "options": [
-      { "text": "Aplicações práticas", "value": "practical" },
-      { "text": "Pesquisa teórica", "value": "theoretical" },
-      { "text": "Inovação tecnológica", "value": "innovation" }
+    "question": "Se você tivesse um superpoder tech, qual seria?",
+    "answers": [
+      { "text": "Codar como um ninja em slow motion", "value": "Casa dos Devs" },
+      { "text": "Inventar apps brilhantes só no pensamento", "value": "Casa da Inovação" },
+      { "text": "Ler código como se fosse a Matrix", "value": "Casa dos Algoritmos" },
+      { "text": "Criar uma IA que detecta a sua fome", "value": "Casa das IA's" },
+      { "text": "Viver em realidades alternativas em 4K", "value": "Casa dos Jogadores" }
     ]
   },
   {
-    "text": "Qual é sua disponibilidade para orientações?",
-    "options": [
-      { "text": "Tempo integral", "value": "full_time" },
-      { "text": "Meio período", "value": "part_time" },
-      { "text": "Horários flexíveis", "value": "flexible" }
+    "question": "Seu ambiente de trabalho ideal tem:",
+    "answers": [
+      { "text": "Brainstorms que parecem stand-up comedy", "value": "Casa da Inovação" },
+      { "text": "Fones de ouvido, um servidor e paz", "value": "Casa dos Devs" },
+      { "text": "VR, snacks e um dragão de estimação", "value": "Casa dos Jogadores" },
+      { "text": "Planilhas que desafiam a realidade", "value": "Casa dos Algoritmos" },
+      { "text": "Robôs fofos andando pela sala", "value": "Casa das IA's" }
     ]
   },
   {
-    "text": "Como você aprende melhor?",
-    "options": [
-      { "text": "Com exemplos práticos", "value": "practical_examples" },
-      { "text": "Com material teórico", "value": "theoretical_material" },
-      { "text": "Mistura de teoria e prática", "value": "mixed_approach" }
+    "question": "Qual dessas matérias te atrai mais?",
+    "answers": [
+      { "text": "Fazer sites que parecem obras de arte digitais", "value": "Casa dos Devs" },
+      { "text": "Programar IAs que batem papo melhor que humanos", "value": "Casa das IA's" },
+      { "text": "Criar produtos que misturam arte, tech e mágica", "value": "Casa da Inovação" },
+      { "text": "Pensar como um algoritmo e sentir como um bit", "value": "Casa dos Algoritmos" },
+      { "text": "Criar mundos onde posso voar e atirar lasers", "value": "Casa dos Jogadores" }
     ]
   },
   {
-    "text": "Qual destes aspectos é mais importante para você?",
-    "options": [
-      { "text": "Publicação de artigos", "value": "papers" },
-      { "text": "Desenvolvimento de produtos", "value": "products" },
-      { "text": "Aquisição de conhecimento", "value": "knowledge" }
+    "question": "Você prefere trabalhar:",
+    "answers": [
+      { "text": "Com uma equipe que parece banda de rock", "value": "Casa da Inovação" },
+      { "text": "Com robôs que não reclamam da vida", "value": "Casa das IA's" },
+      { "text": "Com foco, fone de ouvido e zero reunião", "value": "Casa dos Devs" },
+      { "text": "Sozinho(a), eu e minha lógica contra o mundo", "value": "Casa dos Algoritmos" },
+      { "text": "Na vibe multiplayer com respawn infinito", "value": "Casa dos Jogadores" }
     ]
   },
   {
-    "text": "Qual linguagem de programação você prefere?",
-    "options": [
-      { "text": "Python", "value": "python" },
-      { "text": "JavaScript", "value": "javascript" },
-      { "text": "Java/C#", "value": "java_csharp" },
-      { "text": "Outras", "value": "others" }
+    "question": "Na sua visão, o que a tecnologia deve fazer?",
+    "answers": [
+      { "text": "Criar experiências que nem a ficção previu", "value": "Casa da Inovação" },
+      { "text": "Resolver o bug do século com uma linha de código", "value": "Casa dos Algoritmos" },
+      { "text": "Fazer seu pedido de pizza antes de você pensar", "value": "Casa das IA's" },
+      { "text": "Deixar o mundo mais bonito e clicável", "value": "Casa dos Devs" },
+      { "text": "Levar a diversão a um novo nível", "value": "Casa dos Jogadores" }
     ]
   },
   {
-    "text": "Como você lida com prazos?",
-    "options": [
-      { "text": "Prefiro prazos curtos e intensos", "value": "short" },
-      { "text": "Prefiro prazos longos e planejados", "value": "long" },
-      { "text": "Me adapto a qualquer tipo de prazo", "value": "flexible" }
+    "question": "Você se sente mais realizado quando:",
+    "answers": [
+      { "text": "Um projeto seu viraliza com uma ideia maluca", "value": "Casa da Inovação" },
+      { "text": "A IA aprende a identificar até meme", "value": "Casa das IA's" },
+      { "text": "Seu código roda de primeira (milagre)", "value": "Casa dos Devs" },
+      { "text": "O algoritmo funciona e você ri igual vilão", "value": "Casa dos Algoritmos" },
+      { "text": "Seu game faz alguém esquecer do tempo", "value": "Casa dos Jogadores" }
     ]
   },
   {
-    "text": "Qual é seu objetivo principal?",
-    "options": [
-      { "text": "Entrar no mercado de trabalho", "value": "job" },
-      { "text": "Continuar na academia", "value": "academy" },
-      { "text": "Empreender", "value": "entrepreneur" }
+    "question": "Por fim, o que você acha que te diferencia dos outros?",
+    "answers": [
+      { "text": "Minha mente vive no futuro (com Wi-Fi)", "value": "Casa das IA's" },
+      { "text": "Sou tipo um código bem indentado: raro e elegante", "value": "Casa dos Algoritmos" },
+      { "text": "Consigo fazer deploy e dançar ao mesmo tempo", "value": "Casa dos Devs" },
+      { "text": "Tenho ideias tão fora da caixa que nem tem caixa", "value": "Casa da Inovação" },
+      { "text": "Meu joystick é extensão da minha alma", "value": "Casa dos Jogadores" }
     ]
   }
 ]

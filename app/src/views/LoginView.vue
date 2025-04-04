@@ -1,26 +1,32 @@
 <template>
-  <v-container fill-height fluid class="d-flex justify-center align-center background-purple">
-    <v-card width="400" elevation="10" class="pa-6">
-      <v-card-title class="text-center text-h5 font-weight-bold mb-4">Login</v-card-title>
-      <v-card-text>
-        <v-text-field
-          v-model="username"
-          label="Usuário"
-          prepend-icon="mdi-account"
-          outlined
-        ></v-text-field>
-        <v-text-field
-          v-model="password"
-          label="Senha"
-          type="password"
-          prepend-icon="mdi-lock"
-          outlined
-        ></v-text-field>
-      </v-card-text>
-      <v-card-actions class="justify-center">
-        <v-btn color="primary" large @click="login">Entrar</v-btn>
-      </v-card-actions>
-    </v-card>
+  <v-container fill-height fluid class="login-screen">
+    <v-row justify="center" class="fill-height">
+      <v-col cols="12" sm="8" md="5" lg="4">
+        <v-card class="login-card" elevation="12">
+          <v-card-text>
+            <v-text-field
+              v-model="username"
+              label="Usuário"
+              prepend-icon="mdi-account"
+              outlined
+            />
+            <v-text-field
+              v-model="password"
+              label="Senha"
+              type="password"
+              prepend-icon="mdi-lock"
+              outlined
+            />
+          </v-card-text>
+
+          <v-card-actions class="justify-center">
+            <v-btn color=" accent-4" dark @click="login">
+              ENTRAR NA MAGIA
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -30,39 +36,64 @@ export default {
     return {
       username: '',
       password: '',
-    };
+    }
   },
   methods: {
     login() {
       const validUsers = [
         { username: 'joao', password: '123' },
-        { username: 'leo', password: '123' },
-      ];
+        { username: 'leo', password: '123' }
+      ]
 
-      const isValidUser = validUsers.some(
-        (user) => user.username === this.username && user.password === this.password
-      );
+      const isValid = validUsers.some(
+        (u) => u.username === this.username && u.password === this.password
+      )
 
-      if (isValidUser) {
-        this.$router.push('/houses');
+      if (isValid) {
+        this.$router.push('/houses')
       } else {
-        alert('Usuário ou senha inválidos!');
+        alert('Usuário ou senha inválidos!')
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style scoped>
-
-.background-purple {
-  height: 100vh; 
-  margin: 0; 
-  padding: 0; 
+.login-card {
+  width: 500px;
+  height: 600px;
+  background-image: url('@/assets/pictures/plataforma-34.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  padding: 320px 32px 32px 32px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.v-card {
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.login-card .v-card-title {
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 16px;
 }
+
+.login-card .v-card-text {
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #f2efc2;
+  border: black 2px solid;
+}
+
+.login-card .v-btn {
+  margin-top: 24px;
+  font-weight: bold;
+  background-color: red;
+  color: white !important;
+  border: black 2px solid;
+}
+
 </style>
