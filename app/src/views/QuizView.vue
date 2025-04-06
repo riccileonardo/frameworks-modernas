@@ -2,75 +2,33 @@
   <v-container class="fill-height quiz-layout mt-10" fluid>
     <div class="quiz-container">
       <div class="quiz-left">
-        <v-card class="quiz-card" elevation="2">
+        <QuizCard>
           <v-card-title class="text-center text-h4 font-weight-bold">
             Quiz para escolher sua Casa!
-            <v-progress-linear
-              v-model="progress"
-              height="10"
-              color="purple lighten-2"
-              class="mt-4"
-            ></v-progress-linear>
+            <QuizProgress :progress="progress" />
           </v-card-title>
 
           <v-card-text>
             <v-form @submit.prevent="nextQuestion">
-              <div class="question-container">
-                <h2 class="question-text">{{ currentQuestion.question }}</h2>
+              <QuizQuestion
+                :question="currentQuestion.question"
+                :answers="currentQuestion.answers"
+                v-model="answers[currentIndex]"
+              />
 
-                <v-radio-group
-                  v-model="answers[currentIndex]"
-                  class="options-group"
-                  :rules="[v => !!v || 'Por favor, selecione uma opção']"
-                  required
-                >
-                  <v-radio
-                    v-for="(option, i) in currentQuestion.answers"
-                    :key="i"
-                    :label="option.text"
-                    :value="option.value"
-                    class="option-item"
-                    color="primary"
-                  ></v-radio>
-                </v-radio-group>
-              </div>
-
-              <div class="d-flex justify-space-between mt-6">
-                <v-btn
-                  color="deep-purple darken-2"
-                  dark
-                  @click="prevQuestion"
-                  :disabled="currentIndex === 0"
-                >
-                  Voltar
-                </v-btn>
-
-                <v-btn
-                  color="deep-purple darken-2"
-                  dark
-                  type="submit"
-                  v-if="currentIndex < questions.length - 1"
-                >
-                  Próxima Pergunta
-                </v-btn>
-
-                <v-btn
-                  color="green darken-2"
-                  dark
-                  @click="submitQuiz"
-                  v-else
-                >
-                  Finalizar Quiz
-                </v-btn>
-              </div>
+              <QuizNavigation
+                :isFirst="currentIndex === 0"
+                :isLast="currentIndex === questions.length - 1"
+                @prev="prevQuestion"
+                @next="nextQuestion"
+                @submit="submitQuiz"
+              />
             </v-form>
           </v-card-text>
-        </v-card>
+        </QuizCard>
       </div>
 
-      <div class="quiz-right">
-        <img src="/src/assets/pictures/Ivan.png" alt="Imagem do Quiz" class="quiz-image" />
-      </div>
+      <QuizImage />
     </div>
   </v-container>
 </template>
@@ -79,9 +37,21 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import questionsData from '@/assets/questions.json'
+import QuizCard from '@/components/QuizCard.vue'
+import QuizProgress from '@/components/QuizProgress.vue'
+import QuizQuestion from '@/components/QuizQuestion.vue'
+import QuizNavigation from '@/components/QuizNavigation.vue'
+import QuizImage from '@/components/QuizImage.vue'
 
 export default {
   name: 'Quiz',
+  components: {
+    QuizCard,
+    QuizProgress,
+    QuizQuestion,
+    QuizNavigation,
+    QuizImage
+  },
   setup() {
     const router = useRouter()
 
@@ -90,7 +60,10 @@ export default {
     const answers = ref(Array(questionsData.length).fill(null))
 
     const currentQuestion = computed(() => questions.value[currentIndex.value])
-    const progress = computed(() => (currentIndex.value + 1) * 100 / questions.value.length)
+    const progress = computed(() => {
+      if (!questions.value.length) return 0
+      return ((currentIndex.value + 1) * 100) / questions.value.length
+    })
 
     const nextQuestion = () => {
       if (answers.value[currentIndex.value] !== null) {
@@ -166,53 +139,6 @@ export default {
   min-width: 0;
 }
 
-.quiz-right {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.quiz-image {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: cover;
-}
-
-.quiz-card {
-  width: 100%;
-  max-width: 800px;
-  padding: 24px;
-  border-radius: 15px;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(12px);
-  color: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.question-container {
-  margin-bottom: 24px;
-}
-
-.question-text {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 12px;
-  color: #fff;
-}
-
-.options-group {
-  margin-left: 16px;
-}
-
-.option-item {
-  margin: 8px 0;
-}
-
-.v-label {
-  color: #eee !important;
-}
-
 @media (max-width: 960px) {
   .quiz-container {
     flex-direction: column;
@@ -221,11 +147,6 @@ export default {
 
   .quiz-right {
     order: -1;
-  }
-
-  .quiz-image {
-    max-height: 300px;
-    width: 100%;
   }
 
   .quiz-card {

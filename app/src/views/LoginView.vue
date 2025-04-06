@@ -20,7 +20,7 @@
           </v-card-text>
 
           <v-card-actions class="justify-center">
-            <v-btn color=" accent-4" dark @click="login">
+            <v-btn color="accent-4" dark @click="login">
               ENTRAR NA MAGIA
             </v-btn>
           </v-card-actions>
@@ -38,6 +38,12 @@ export default {
       password: '',
     }
   },
+  created() {
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (user?.loggedIn) {
+      this.$router.push('/houses')
+    }
+  },
   methods: {
     login() {
       const validUsers = [
@@ -50,6 +56,10 @@ export default {
       )
 
       if (isValid) {
+        localStorage.setItem('user', JSON.stringify({
+          loggedIn: true,
+          username: this.username
+        }))
         this.$router.push('/houses')
       } else {
         alert('Usuário ou senha inválidos!')
@@ -95,5 +105,4 @@ export default {
   color: white !important;
   border: black 2px solid;
 }
-
 </style>
