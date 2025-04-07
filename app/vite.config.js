@@ -1,17 +1,15 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import vuetify from 'vite-plugin-vuetify' // se estiver usando Vuetify
 
-// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
-import vuetify from 'vite-plugin-vuetify'
-
-// https://vite.dev/config/
 export default defineConfig({
+  base: '/frameworks-modernas/', // 👈 ESSENCIAL PARA GITHUB PAGES
   plugins: [
     vue(),
     vueDevTools(),
+    vuetify(), // 👈 ative se estiver usando Vuetify
   ],
   resolve: {
     alias: {
